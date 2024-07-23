@@ -37,3 +37,20 @@ function updateUser(name, newDetails) {
 const updated = updateUser('Ram Sharma', { address: 'Bhagalpur', age: 25 });
 console.log(updated);
 console.log(allUsers);
+
+
+//DELETE USER FUNCTION
+
+function deleteUser(name){
+    const user=findUserByName(name);
+    const index=userData.indexOf(user);
+    if(index!=-1){
+        userData.splice(index,1);
+        return true;
+    }
+    return false;
+}
+
+const deleted=deleteUser('Ram Sharma');
+console.log(deleted)
+console.log(allUsers);
