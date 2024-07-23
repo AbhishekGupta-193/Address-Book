@@ -41,16 +41,32 @@ console.log(allUsers);
 
 //DELETE USER FUNCTION
 
-function deleteUser(name){
-    const user=findUserByName(name);
-    const index=userData.indexOf(user);
-    if(index!=-1){
-        userData.splice(index,1);
+function deleteUser(name) {
+    const user = findUserByName(name);
+    const index = userData.indexOf(user);
+    if (index != -1) {
+        userData.splice(index, 1);
         return true;
     }
     return false;
 }
 
-const deleted=deleteUser('Ram Sharma');
+const deleted = deleteUser('Ram Sharma');
 console.log(deleted)
 console.log(allUsers);
+
+
+//SEARCHING USER
+
+function findUserByAddress(address) {
+    return userData.find(user => user.address == address);      //search by address
+}
+function findUserByAddress(state) {
+    return userData.find(user => user.state == state);          //search by state
+}
+function findUserByAddress(number) {
+    return userData.find(user => user.number == number);        //search by number
+}
+function findUserByAddress(age) {
+    return userData.find(user => user.age == age);              //search by age
+}
