@@ -10,7 +10,7 @@ function createUser(fullName, address, age, number, state) {
 
 createUser('Abhishek Kumar Gupta', 'Dumka', 22, 7992417318, 'Jharkhand');  //User 1
 createUser('John Doe', 'Kormangala', 32, 9892417318, 'Karnataka');  // User 2
-createUser('Ram Sharma', 'Patna', 30, 7777417318, 'Bihar');  // User 2
+createUser('Ram Sharma', 'Patna', 30, 7777417318, 'Bihar');  // User 3
 
 //READ USER FUNCTION
 function readUsers() {
@@ -61,12 +61,32 @@ console.log(allUsers);
 function findUserByAddress(address) {
     return userData.find(user => user.address == address);      //search by address
 }
-function findUserByAddress(state) {
+function findUserByState(state) {
     return userData.find(user => user.state == state);          //search by state
 }
-function findUserByAddress(number) {
+function findUserByNumber(number) {
     return userData.find(user => user.number == number);        //search by number
 }
-function findUserByAddress(age) {
+function findUserByAge(age) {
     return userData.find(user => user.age == age);              //search by age
 }
+
+
+
+//SORTING USER DATAS 
+
+function sortUsersByStringParameter(users, parameter) {
+    return users.sort((a, b) => a[parameter].localeCompare(b[parameter]));      //for FULLNAME,ADDRESS,STATE
+}
+
+const sortedByAddress = sortUsersByStringParameter(userData, "address");
+sortedByAddress.forEach(user => console.log(user));
+
+
+
+function sortUsersByIntParameter(users, parameter) {
+    return users.sort((a, b) => a[parameter] - b[parameter]);           //for AGE and NUMBER
+}
+
+const sortedByAge = sortUsersByIntParameter(userData,"age");
+sortedByAge.forEach(user => console.log(user));
